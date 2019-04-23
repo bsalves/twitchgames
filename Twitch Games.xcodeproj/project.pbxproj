@@ -22,6 +22,11 @@
 		3974B074226EA26D00070AF1 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B073226EA26D00070AF1 /* GameCollectionViewCell.swift */; };
 		3974B077226EBDEE00070AF1 /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B076226EBDEE00070AF1 /* StreamViewController.swift */; };
 		3974B079226EBEDF00070AF1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3974B078226EBEDF00070AF1 /* WebKit.framework */; };
+		3974B07C226EC7B600070AF1 /* TWGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B07B226EC7B600070AF1 /* TWGames.swift */; };
+		3974B07E226EC88800070AF1 /* TWVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B07D226EC88800070AF1 /* TWVideos.swift */; };
+		3974B081226EC8DC00070AF1 /* TopGamesRemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B080226EC8DC00070AF1 /* TopGamesRemoteData.swift */; };
+		3974B083226ECC6E00070AF1 /* RemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B082226ECC6E00070AF1 /* RemoteData.swift */; };
+		3974B085226ECCBC00070AF1 /* VideosRemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B084226ECCBC00070AF1 /* VideosRemoteData.swift */; };
 		43F682E6DA831832CD91FF7C /* Pods_Twitch_GamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4DB4B77DCCD533C4E5046C /* Pods_Twitch_GamesTests.framework */; };
 		B0DE0A3C7D42FDDD614A7AB1 /* Pods_Twitch_Games.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CBA0688DBCEF3F595F9928 /* Pods_Twitch_Games.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +70,11 @@
 		3974B073226EA26D00070AF1 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
 		3974B076226EBDEE00070AF1 /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
 		3974B078226EBEDF00070AF1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3974B07B226EC7B600070AF1 /* TWGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWGames.swift; sourceTree = "<group>"; };
+		3974B07D226EC88800070AF1 /* TWVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TWVideos.swift; sourceTree = "<group>"; };
+		3974B080226EC8DC00070AF1 /* TopGamesRemoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopGamesRemoteData.swift; sourceTree = "<group>"; };
+		3974B082226ECC6E00070AF1 /* RemoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteData.swift; sourceTree = "<group>"; };
+		3974B084226ECCBC00070AF1 /* VideosRemoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosRemoteData.swift; sourceTree = "<group>"; };
 		666C54286270C83A5CA318F0 /* Pods-Twitch Games.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitch Games.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitch Games/Pods-Twitch Games.debug.xcconfig"; sourceTree = "<group>"; };
 		742F410FAEC94FC805188217 /* Pods-Twitch Games.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitch Games.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitch Games/Pods-Twitch Games.release.xcconfig"; sourceTree = "<group>"; };
 		92A743E06A22E34CEE97B873 /* Pods-Twitch GamesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitch GamesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitch GamesUITests/Pods-Twitch GamesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +150,8 @@
 		393ACBA1226E95770033E825 /* Twitch Games */ = {
 			isa = PBXGroup;
 			children = (
+				3974B07F226EC8CA00070AF1 /* RemoteData */,
+				3974B07A226EC6A600070AF1 /* Codable */,
 				3974B070226EA14900070AF1 /* Entities */,
 				3974B069226E9CD300070AF1 /* Modules */,
 				393ACBA2226E95770033E825 /* AppDelegate.swift */,
@@ -212,6 +224,25 @@
 				3974B076226EBDEE00070AF1 /* StreamViewController.swift */,
 			);
 			path = Stream;
+			sourceTree = "<group>";
+		};
+		3974B07A226EC6A600070AF1 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				3974B07B226EC7B600070AF1 /* TWGames.swift */,
+				3974B07D226EC88800070AF1 /* TWVideos.swift */,
+			);
+			path = Codable;
+			sourceTree = "<group>";
+		};
+		3974B07F226EC8CA00070AF1 /* RemoteData */ = {
+			isa = PBXGroup;
+			children = (
+				3974B080226EC8DC00070AF1 /* TopGamesRemoteData.swift */,
+				3974B084226ECCBC00070AF1 /* VideosRemoteData.swift */,
+				3974B082226ECC6E00070AF1 /* RemoteData.swift */,
+			);
+			path = RemoteData;
 			sourceTree = "<group>";
 		};
 		AE7C8811482F0360A7E54071 /* Pods */ = {
@@ -444,13 +475,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3974B077226EBDEE00070AF1 /* StreamViewController.swift in Sources */,
+				3974B083226ECC6E00070AF1 /* RemoteData.swift in Sources */,
 				393ACBA3226E95770033E825 /* AppDelegate.swift in Sources */,
+				3974B085226ECCBC00070AF1 /* VideosRemoteData.swift in Sources */,
 				3974B06F226E9F7D00070AF1 /* GameDetailViewController.swift in Sources */,
 				3974B06C226E9CFA00070AF1 /* GamesViewController+CollectionView.swift in Sources */,
+				3974B07E226EC88800070AF1 /* TWVideos.swift in Sources */,
 				3974B074226EA26D00070AF1 /* GameCollectionViewCell.swift in Sources */,
+				3974B081226EC8DC00070AF1 /* TopGamesRemoteData.swift in Sources */,
 				3974B068226E997900070AF1 /* GamesViewController.swift in Sources */,
 				393ACBAB226E95770033E825 /* Twitch_Games.xcdatamodeld in Sources */,
 				3974B072226EA15A00070AF1 /* GameModel.swift in Sources */,
+				3974B07C226EC7B600070AF1 /* TWGames.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
