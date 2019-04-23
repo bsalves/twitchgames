@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (4.8.2)
+  - AlamofireImage (3.5.2):
+    - Alamofire (~> 4.8)
+  - PKHUD (5.2.1)
+  - Reachability (3.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
+  - PKHUD
+  - Reachability (~> 3.2)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - PKHUD
+    - Reachability
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  PKHUD: 4e6162c4c39ac367c6934e9855c6b4762ee16256
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+
+PODFILE CHECKSUM: 6da9b550b62447f726aa666a5a32b8d6b580c9b7
+
+COCOAPODS: 1.5.3
