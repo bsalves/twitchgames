@@ -16,3 +16,29 @@ protocol RemoteDataDelegate: class {
     func dataDidLoaded(_ data: Data)
     func requestDidReceivedError(_ error: Error)
 }
+struct Api {
+    
+    static var clientId: String {
+        return Api.dictionary["TwitchClientId"] as? String ?? ""
+    }
+    
+    private static var dictionary: NSDictionary {
+        guard let path = Bundle.main.path(forResource: "Info", ofType: "plist") else { return NSDictionary() }
+        return NSDictionary(contentsOfFile: path) ?? NSDictionary()
+    }
+    
+    enum Endpoint {
+        case games, videos
+        
+        var url: String {
+            let dictionary = Api.dictionary
+            switch self {
+            case .games:
+                return dictionary["TopGamesEndpoint"] as? String ?? ""
+            case .videos:
+                return dictionary["VideosEndpoint"] as? String ?? ""
+            }
+        }
+    }
+}
+

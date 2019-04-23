@@ -15,12 +15,10 @@ class VideosRemoteData {
     
     func fetchVideos(withGameId: Int) {
         
-        // TODO: Store API Endpoint on info.plist
-        
         let params = ["game_id": withGameId]
-        let headers = ["Client-ID": "i956f46goi35c3xc054c948shm3snl"]
+        let headers = ["Client-ID": Api.clientId]
         
-        Alamofire.request("https://api.twitch.tv/helix/clips", method: .get, parameters: params, encoding: JSONEncoding.default, headers: headers)
+        Alamofire.request(Api.Endpoint.videos.url, method: .get, parameters: params, encoding: JSONEncoding.default, headers: headers)
             .validate(contentType: ["application/json"])
             .validate(statusCode: 200...300)
             .responseData { [weak self] (request) in

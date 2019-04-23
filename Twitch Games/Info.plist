@@ -46,5 +46,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>TopGamesEndpoint</key>
+	<string>https://api.twitch.tv/kraken/games/top</string>
+	<key>VideosEndpoint</key>
+	<string>https://api.twitch.tv/helix/clips</string>
+	<key>TwitchClientId</key>
+	<string>i956f46goi35c3xc054c948shm3snl</string>
 </dict>
 </plist>
