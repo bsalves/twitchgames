@@ -130,13 +130,13 @@ class GamesViewController: UIViewController {
 extension GamesViewController: GamesViewModelDelegate {
     func connectionFails() {
         errorLabel.isHidden = false
-        errorLabel.text = "Ooops! Connection issues!"
+        errorLabel.text = "Ooops!\nConnection is down!"
         self.asyncLoadFinished()
     }
     
     func encodingDataReceivedError(_ error: Error?) {
         errorLabel.isHidden = false
-        errorLabel.text = "Ooops!"
+        errorLabel.text = "Ooops!\nError while trying to get games."
         self.asyncLoadFinished()
     }
     

@@ -109,11 +109,13 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
     func encodingDataReceivedError(_ error: Error?) {
         self.videoDidLoad()
         self.videoUrl = nil
+        HUD.flash(HUDContentType.label("Problems when trying to load video. Please, try again!"), delay: 1.5)
     }
     
     func invalidUrl() {
         self.videoDidLoad()
         self.videoUrl = nil
+        HUD.flash(HUDContentType.label("Problems when trying to load video. Please, try again!"), delay: 1.5)
     }
     
     func videoDidLoad(_ videoUrl: URL) {
@@ -125,5 +127,6 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
     func videosEmptyList() {
         self.videoDidLoad()
         self.videoUrl = nil
+        HUD.flash(HUDContentType.label("No videos found"), delay: 1)
     }
 }
