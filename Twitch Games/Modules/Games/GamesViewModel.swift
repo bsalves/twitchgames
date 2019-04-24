@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import Reachability
 
 protocol GamesViewModelDelegate: class {
     func encodingDataReceivedError(_ error: Error?)
     func gamesDidLoad(_ games: [GameModel])
+    func connectionFails()
 }
 
 class GamesViewModel {
@@ -18,7 +20,7 @@ class GamesViewModel {
     // MARK: Local properties
     
     var topGamesRemoteData = TopGamesRemoteData()
-    weak var delegate: GamesViewModelDelegate?
+    weak private var delegate: GamesViewModelDelegate?
     
     // MARK: Private properties
     
@@ -26,15 +28,24 @@ class GamesViewModel {
     
     // MARK: Constructor
     
-    init() {
+    init(delegate: GamesViewModelDelegate) {
+        self.delegate = delegate
         topGamesRemoteData.delegate = self
+        self.gamesFromTwitch()
+    }
+    
+    func refreshGames() {
         self.gamesFromTwitch()
     }
     
     // MARK: Private methods
     
     private func gamesFromTwitch() {
-        topGamesRemoteData.fetch()
+        if Connectivity.isConnectedToInternet() {
+            topGamesRemoteData.fetch()
+            return
+        }
+        self.delegate?.connectionFails()
     }
 }
 
@@ -42,6 +53,7 @@ extension GamesViewModel: RemoteDataDelegate {
     func dataDidLoaded(_ data: Data) {
         do {
             let games = try JSONDecoder().decode(TWGames.self, from: data)
+            self.games = []
             games.top.forEach { [unowned self] (game) in
                 self.games.append(GameModel(gameName: game.game.name, imageUrl: game.game.box.large, channels: String(describing: game.viewers), viewers: String(describing: game.channels)))
             }

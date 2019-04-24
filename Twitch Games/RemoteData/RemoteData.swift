@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum RemoteDataError: Error {
     case dataEmpty, notFound, timeout, serverError
@@ -16,8 +17,14 @@ protocol RemoteDataDelegate: class {
     func dataDidLoaded(_ data: Data)
     func requestDidReceivedError(_ error: Error)
 }
+
+class Connectivity {
+    class func isConnectedToInternet() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+}
+
 struct Api {
-    
     static var clientId: String {
         return Api.dictionary["TwitchClientId"] as? String ?? ""
     }

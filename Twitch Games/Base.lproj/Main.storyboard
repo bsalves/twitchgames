@@ -90,12 +90,23 @@
                                     <outlet property="delegate" destination="wRp-PK-vJZ" id="qZf-c3-PrT"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SrQ-L0-GfU">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.87613995040000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="n5b-jo-8Gw" firstAttribute="trailing" secondItem="SrQ-L0-GfU" secondAttribute="trailing" id="03r-Uc-wPN"/>
                             <constraint firstItem="n5b-jo-8Gw" firstAttribute="trailing" secondItem="j9M-Sq-LwL" secondAttribute="trailing" id="NfX-uf-fPp"/>
+                            <constraint firstItem="n5b-jo-8Gw" firstAttribute="bottom" secondItem="SrQ-L0-GfU" secondAttribute="bottom" id="St2-9A-B4W"/>
                             <constraint firstItem="j9M-Sq-LwL" firstAttribute="top" secondItem="n5b-jo-8Gw" secondAttribute="top" id="ghA-nv-Zxi"/>
+                            <constraint firstItem="SrQ-L0-GfU" firstAttribute="top" secondItem="n5b-jo-8Gw" secondAttribute="top" id="jxV-Nv-J0Y"/>
                             <constraint firstItem="j9M-Sq-LwL" firstAttribute="leading" secondItem="n5b-jo-8Gw" secondAttribute="leading" id="n2E-Gd-eJH"/>
+                            <constraint firstItem="SrQ-L0-GfU" firstAttribute="leading" secondItem="n5b-jo-8Gw" secondAttribute="leading" id="sHj-ZO-1DE"/>
                             <constraint firstItem="n5b-jo-8Gw" firstAttribute="bottom" secondItem="j9M-Sq-LwL" secondAttribute="bottom" id="tjw-1n-6Uu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n5b-jo-8Gw"/>
@@ -104,6 +115,7 @@
                     <connections>
                         <outlet property="collectionView" destination="j9M-Sq-LwL" id="48p-uu-xhJ"/>
                         <outlet property="collectionViewLayoutFlow" destination="P0y-e7-zCr" id="DHP-qE-z94"/>
+                        <outlet property="errorLabel" destination="SrQ-L0-GfU" id="o7Y-AF-Rpj"/>
                         <segue destination="vMj-yJ-rxK" kind="show" identifier="goToDetails" id="13N-K0-Iq6"/>
                     </connections>
                 </viewController>
