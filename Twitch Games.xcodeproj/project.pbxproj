@@ -29,6 +29,7 @@
 		3974B085226ECCBC00070AF1 /* VideosRemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B084226ECCBC00070AF1 /* VideosRemoteData.swift */; };
 		3974B089226FD34F00070AF1 /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B088226FD34F00070AF1 /* GamesViewModel.swift */; };
 		3974B08B226FE45400070AF1 /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B08A226FE45400070AF1 /* GameDetailViewModel.swift */; };
+		3974B08E227018AE00070AF1 /* GamesLocalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B08D227018AE00070AF1 /* GamesLocalData.swift */; };
 		43F682E6DA831832CD91FF7C /* Pods_Twitch_GamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4DB4B77DCCD533C4E5046C /* Pods_Twitch_GamesTests.framework */; };
 		B0DE0A3C7D42FDDD614A7AB1 /* Pods_Twitch_Games.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CBA0688DBCEF3F595F9928 /* Pods_Twitch_Games.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		3974B084226ECCBC00070AF1 /* VideosRemoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosRemoteData.swift; sourceTree = "<group>"; };
 		3974B088226FD34F00070AF1 /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
 		3974B08A226FE45400070AF1 /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
+		3974B08D227018AE00070AF1 /* GamesLocalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesLocalData.swift; sourceTree = "<group>"; };
 		666C54286270C83A5CA318F0 /* Pods-Twitch Games.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitch Games.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitch Games/Pods-Twitch Games.debug.xcconfig"; sourceTree = "<group>"; };
 		742F410FAEC94FC805188217 /* Pods-Twitch Games.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitch Games.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitch Games/Pods-Twitch Games.release.xcconfig"; sourceTree = "<group>"; };
 		92A743E06A22E34CEE97B873 /* Pods-Twitch GamesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitch GamesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitch GamesUITests/Pods-Twitch GamesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		393ACBA1226E95770033E825 /* Twitch Games */ = {
 			isa = PBXGroup;
 			children = (
+				3974B08C2270189A00070AF1 /* LocalData */,
 				3974B07F226EC8CA00070AF1 /* RemoteData */,
 				3974B07A226EC6A600070AF1 /* Codable */,
 				3974B070226EA14900070AF1 /* Entities */,
@@ -257,6 +260,14 @@
 			children = (
 			);
 			path = FavoritedGames;
+			sourceTree = "<group>";
+		};
+		3974B08C2270189A00070AF1 /* LocalData */ = {
+			isa = PBXGroup;
+			children = (
+				3974B08D227018AE00070AF1 /* GamesLocalData.swift */,
+			);
+			path = LocalData;
 			sourceTree = "<group>";
 		};
 		AE7C8811482F0360A7E54071 /* Pods */ = {
@@ -489,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3974B077226EBDEE00070AF1 /* StreamViewController.swift in Sources */,
+				3974B08E227018AE00070AF1 /* GamesLocalData.swift in Sources */,
 				3974B083226ECC6E00070AF1 /* RemoteData.swift in Sources */,
 				393ACBA3226E95770033E825 /* AppDelegate.swift in Sources */,
 				3974B085226ECCBC00070AF1 /* VideosRemoteData.swift in Sources */,

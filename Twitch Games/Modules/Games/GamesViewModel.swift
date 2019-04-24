@@ -20,6 +20,7 @@ class GamesViewModel {
     // MARK: Local properties
     
     var topGamesRemoteData = TopGamesRemoteData()
+    lazy var gamesLocalData = GamesLocalData()
     weak private var delegate: GamesViewModelDelegate?
     
     // MARK: Private properties
@@ -45,6 +46,12 @@ class GamesViewModel {
             topGamesRemoteData.fetch()
             return
         }
+        
+        let gamesLocal = gamesLocalData.loadAllData()
+        if gamesLocal.count > 0 {
+            self.delegate?.gamesDidLoad(gamesLocal)
+            return
+        }
         self.delegate?.connectionFails()
     }
 }
@@ -57,6 +64,9 @@ extension GamesViewModel: RemoteDataDelegate {
             games.top.forEach { [unowned self] (game) in
                 self.games.append(GameModel(gameId: game.game.id, gameName: game.game.name, imageUrl: game.game.box.large, channels: String(describing: game.viewers), viewers: String(describing: game.channels)))
             }
+            // save cache of games
+            self.gamesLocalData.deleteData()
+            self.gamesLocalData.saveData(self.games)
             self.delegate?.gamesDidLoad(self.games)
         } catch let error {
             self.delegate?.encodingDataReceivedError(error)

@@ -15,7 +15,7 @@ class TopGamesRemoteData {
     
     func fetch() {
         
-        let params = ["limit": 10]
+        let params = ["limit": 50]
         let headers = ["Client-ID": Api.clientId]
         
         Alamofire.request(Api.Endpoint.games.url, method: .get, parameters: params, encoding: URLEncoding.default, headers: headers)

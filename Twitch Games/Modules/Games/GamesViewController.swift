@@ -41,6 +41,14 @@ class GamesViewController: UIViewController {
         super.viewWillAppear(animated)
         if !Connectivity.isConnectedToInternet() {
             HUD.hide()
+            self.connectionDown()
+        }
+        
+        if self.games.count > 0 {
+            errorLabel.isHidden = true
+        } else {
+            errorLabel.isHidden = false
+            errorLabel.text = "Nothing here!"
         }
     }
     
@@ -107,12 +115,6 @@ class GamesViewController: UIViewController {
     
     private func gamesLoaded() {
         self.collectionView.reloadData()
-        if self.games.count > 0 {
-            errorLabel.isHidden = true
-            return
-        }
-        errorLabel.isHidden = false
-        errorLabel.text = "Nothing here!"
     }
     
     private func showLoading() {
