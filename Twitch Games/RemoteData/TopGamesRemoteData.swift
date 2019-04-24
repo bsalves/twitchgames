@@ -21,14 +21,14 @@ class TopGamesRemoteData {
         Alamofire.request(Api.Endpoint.games.url, method: .get, parameters: params, encoding: JSONEncoding.default, headers: headers)
             .validate(contentType: ["application/json"])
             .validate(statusCode: 200...300)
-            .responseData { [weak self] (request) in
+            .responseData { [unowned self] (request) in
                 switch request.result {
                 case .success:
                     guard let data = request.data else {
-                        self?.delegate?.requestDidReceivedError(RemoteDataError.dataEmpty)
+                        self.delegate?.requestDidReceivedError(RemoteDataError.dataEmpty)
                         return
                     }
-                    self?.delegate?.dataDidLoaded(data)
+                    self.delegate?.dataDidLoaded(data)
                 default:
                     break
                 }

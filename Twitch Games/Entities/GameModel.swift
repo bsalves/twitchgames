@@ -12,5 +12,7 @@ struct GameModel {
     
     var gameName: String
     var imageUrl: String
+    var channels: String
+    var viewers: String
     
 }

@@ -19,23 +19,33 @@ class GameDetailViewController: UIViewController {
     
     // MARK: Properties
     
+    var viewModel: GameDetailViewModel!
     var game: GameModel!
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initiateViewModel()
         setup()
     }
     
     // MARK: Private methods
     
     private func setup() {
-        self.title = self.game?.gameName
-        self.navigationController?.title = game.gameName
         
-        if let imageUrl = URL(string: game.imageUrl) {
+        self.title = self.viewModel.gameName
+        self.navigationController?.title = self.viewModel.gameName
+        
+        self.viewers.text = self.viewModel.viewers
+        self.channels.text = self.viewModel.channels
+        
+        if let imageUrl = URL(string: self.viewModel.cover) {
             self.cover.af_setImage(withURL: imageUrl)
         }
+    }
+    
+    private func initiateViewModel() {
+        self.viewModel = GameDetailViewModel(game: self.game)
     }
 }

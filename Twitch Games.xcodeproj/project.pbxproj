@@ -27,6 +27,8 @@
 		3974B081226EC8DC00070AF1 /* TopGamesRemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B080226EC8DC00070AF1 /* TopGamesRemoteData.swift */; };
 		3974B083226ECC6E00070AF1 /* RemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B082226ECC6E00070AF1 /* RemoteData.swift */; };
 		3974B085226ECCBC00070AF1 /* VideosRemoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B084226ECCBC00070AF1 /* VideosRemoteData.swift */; };
+		3974B089226FD34F00070AF1 /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B088226FD34F00070AF1 /* GamesViewModel.swift */; };
+		3974B08B226FE45400070AF1 /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3974B08A226FE45400070AF1 /* GameDetailViewModel.swift */; };
 		43F682E6DA831832CD91FF7C /* Pods_Twitch_GamesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4DB4B77DCCD533C4E5046C /* Pods_Twitch_GamesTests.framework */; };
 		B0DE0A3C7D42FDDD614A7AB1 /* Pods_Twitch_Games.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CBA0688DBCEF3F595F9928 /* Pods_Twitch_Games.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +77,8 @@
 		3974B080226EC8DC00070AF1 /* TopGamesRemoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopGamesRemoteData.swift; sourceTree = "<group>"; };
 		3974B082226ECC6E00070AF1 /* RemoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteData.swift; sourceTree = "<group>"; };
 		3974B084226ECCBC00070AF1 /* VideosRemoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosRemoteData.swift; sourceTree = "<group>"; };
+		3974B088226FD34F00070AF1 /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
+		3974B08A226FE45400070AF1 /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
 		666C54286270C83A5CA318F0 /* Pods-Twitch Games.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitch Games.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitch Games/Pods-Twitch Games.debug.xcconfig"; sourceTree = "<group>"; };
 		742F410FAEC94FC805188217 /* Pods-Twitch Games.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitch Games.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitch Games/Pods-Twitch Games.release.xcconfig"; sourceTree = "<group>"; };
 		92A743E06A22E34CEE97B873 /* Pods-Twitch GamesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitch GamesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitch GamesUITests/Pods-Twitch GamesUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 		3974B069226E9CD300070AF1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3974B087226FD2F800070AF1 /* FavoritedGames */,
 				3974B075226EBDD800070AF1 /* Stream */,
 				3974B06D226E9F6900070AF1 /* GameDetail */,
 				3974B06A226E9CDF00070AF1 /* Games */,
@@ -198,6 +203,7 @@
 				3974B067226E997900070AF1 /* GamesViewController.swift */,
 				3974B06B226E9CFA00070AF1 /* GamesViewController+CollectionView.swift */,
 				3974B073226EA26D00070AF1 /* GameCollectionViewCell.swift */,
+				3974B088226FD34F00070AF1 /* GamesViewModel.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				3974B06E226E9F7D00070AF1 /* GameDetailViewController.swift */,
+				3974B08A226FE45400070AF1 /* GameDetailViewModel.swift */,
 			);
 			path = GameDetail;
 			sourceTree = "<group>";
@@ -243,6 +250,13 @@
 				3974B082226ECC6E00070AF1 /* RemoteData.swift */,
 			);
 			path = RemoteData;
+			sourceTree = "<group>";
+		};
+		3974B087226FD2F800070AF1 /* FavoritedGames */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FavoritedGames;
 			sourceTree = "<group>";
 		};
 		AE7C8811482F0360A7E54071 /* Pods */ = {
@@ -484,6 +498,8 @@
 				3974B074226EA26D00070AF1 /* GameCollectionViewCell.swift in Sources */,
 				3974B081226EC8DC00070AF1 /* TopGamesRemoteData.swift in Sources */,
 				3974B068226E997900070AF1 /* GamesViewController.swift in Sources */,
+				3974B08B226FE45400070AF1 /* GameDetailViewModel.swift in Sources */,
+				3974B089226FD34F00070AF1 /* GamesViewModel.swift in Sources */,
 				393ACBAB226E95770033E825 /* Twitch_Games.xcdatamodeld in Sources */,
 				3974B072226EA15A00070AF1 /* GameModel.swift in Sources */,
 				3974B07C226EC7B600070AF1 /* TWGames.swift in Sources */,

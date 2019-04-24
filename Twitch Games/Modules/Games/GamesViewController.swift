@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class GamesViewController: UIViewController {
     
@@ -20,11 +21,22 @@ class GamesViewController: UIViewController {
     var games = [GameModel]()
     var selectedGame: GameModel?
     
+    // MARK: Private properties
+    
+    private var viewModel: GamesViewModel?
+    private var isLoading: Bool = false {
+        didSet {
+            toggleLoading()
+        }
+    }
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        initiateViewModel()
+        isLoading = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,9 +54,31 @@ class GamesViewController: UIViewController {
         collectionViewLayoutFlow.minimumInteritemSpacing = 1
         
         //
-        games.append(GameModel(gameName: "Counter Strike", imageUrl: "http://www.tompetty.com/sites/g/files/g2000007521/f/styles/photo-carousel/public/sample001.jpg?itok=0Riiujkr"))
+        //games.append(GameModel(gameName: "Counter Strike", imageUrl: "http://www.tompetty.com/sites/g/files/g2000007521/f/styles/photo-carousel/public/sample001.jpg?itok=0Riiujkr"))
     }
     
+    private func initiateViewModel() {
+        viewModel = GamesViewModel()
+        viewModel?.delegate = self
+    }
+    
+    private func toggleLoading() {
+        if isLoading {
+            HUD.show(HUDContentType.progress)
+            return
+        }
+        HUD.hide()
+    }
 }
 
-
+extension GamesViewController: GamesViewModelDelegate {
+    func encodingDataReceivedError(_ error: Error?) {
+        // Display error message on screen
+    }
+    
+    func gamesDidLoad(_ games: [GameModel]) {
+        self.games = games
+        self.collectionView.reloadData()
+        self.isLoading = false
+    }
+}
