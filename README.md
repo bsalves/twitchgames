@@ -26,4 +26,4 @@ Quando aberto pela primeira vez, o app ira listar os jogos e ao clicar em um det
 
 ### Persistencia de dados
 
-Por se tratar de um app que lista os jogos mais jogados no momento a listagem de jogos a lista é persistida para gerar cache da última sincronização, também utilizei um componente que serve para persistir imagem como cache, assim, uma vez carregado a listagem de jogos o usuário pode navegar para as telas seguintes.
+Este app utiliza core data para persistir a ultima lista de jogos carregados, o app também utiliza um componente que  permite persistir imagens, assim, uma vez carregado a listagem de jogos o usuário pode navegar para as telas seguintes.
