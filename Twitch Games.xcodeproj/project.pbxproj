@@ -192,7 +192,6 @@
 		3974B069226E9CD300070AF1 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				3974B087226FD2F800070AF1 /* FavoritedGames */,
 				3974B075226EBDD800070AF1 /* Stream */,
 				3974B06D226E9F6900070AF1 /* GameDetail */,
 				3974B06A226E9CDF00070AF1 /* Games */,
@@ -253,13 +252,6 @@
 				3974B082226ECC6E00070AF1 /* RemoteData.swift */,
 			);
 			path = RemoteData;
-			sourceTree = "<group>";
-		};
-		3974B087226FD2F800070AF1 /* FavoritedGames */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FavoritedGames;
 			sourceTree = "<group>";
 		};
 		3974B08C2270189A00070AF1 /* LocalData */ = {
@@ -692,6 +684,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Twitch Games/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -710,6 +703,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Twitch Games/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

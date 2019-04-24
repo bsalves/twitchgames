@@ -101,6 +101,10 @@ class GameDetailViewController: UIViewController {
     }
     
     @IBAction func initiateVideoModal(_ sender: Any) {
+        if !Connectivity.isConnectedToInternet() {
+            HUD.flash(HUDContentType.label("You need to be connected to watch videos!"), delay: 3)
+            return
+        }
         self.loadVideo()
     }
 }
@@ -109,13 +113,13 @@ extension GameDetailViewController: GameDetailViewModelDelegate {
     func encodingDataReceivedError(_ error: Error?) {
         self.videoDidLoad()
         self.videoUrl = nil
-        HUD.flash(HUDContentType.label("Problems when trying to load video. Please, try again!"), delay: 1.5)
+        HUD.flash(HUDContentType.label("Problems when trying to load video. Please, try again!"), delay: 3)
     }
     
     func invalidUrl() {
         self.videoDidLoad()
         self.videoUrl = nil
-        HUD.flash(HUDContentType.label("Problems when trying to load video. Please, try again!"), delay: 1.5)
+        HUD.flash(HUDContentType.label("Problems when trying to load video. Please, try again!"), delay: 3)
     }
     
     func videoDidLoad(_ videoUrl: URL) {

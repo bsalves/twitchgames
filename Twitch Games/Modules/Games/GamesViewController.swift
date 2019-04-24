@@ -144,6 +144,9 @@ extension GamesViewController: GamesViewModelDelegate {
     
     func gamesDidLoad(_ games: [GameModel]) {
         self.games = games
+        if self.games.count > 0 {
+            errorLabel.isHidden = true
+        }
         self.gamesLoaded()
         self.asyncLoadFinished()
     }
