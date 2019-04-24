@@ -15,6 +15,10 @@ class StreamViewController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
     
+    // MARK: Internal properties
+    
+    var videoUrl: URL!
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
@@ -31,7 +35,7 @@ class StreamViewController: UIViewController {
     // MARK: Private methods
     
     private func setup() {
-        let urlRequest = URLRequest(url: URL(string: "https://clips.twitch.tv/embed?clip=LivelyKawaiiJackalPeanutButterJellyTime")!)
+        let urlRequest = URLRequest(url: self.videoUrl)
         webView.load(urlRequest)
     }
     

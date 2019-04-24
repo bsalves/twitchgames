@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import Reachability
 import AlamofireImage
+import PKHUD
 
 class GameDetailViewController: UIViewController {
     
@@ -16,11 +18,14 @@ class GameDetailViewController: UIViewController {
     @IBOutlet weak var viewers: UILabel!
     @IBOutlet weak var channels: UILabel!
     @IBOutlet weak var cover: UIImageView!
+    @IBOutlet weak var watchVideoButton: UIButton!
     
     // MARK: Properties
     
     var viewModel: GameDetailViewModel!
     var game: GameModel!
+    var videoUrl: URL?
+    private var reachability: Reachability?
     
     // MARK: Lifecycle
     
@@ -30,10 +35,16 @@ class GameDetailViewController: UIViewController {
         setup()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToVideo" {
+            let destination = segue.destination as? StreamViewController
+            destination?.videoUrl = self.videoUrl
+        }
+    }
+    
     // MARK: Private methods
     
     private func setup() {
-        
         self.title = self.viewModel.gameName
         self.navigationController?.title = self.viewModel.gameName
         
@@ -43,9 +54,76 @@ class GameDetailViewController: UIViewController {
         if let imageUrl = URL(string: self.viewModel.cover) {
             self.cover.af_setImage(withURL: imageUrl)
         }
+        
+        self.registerReachability()
     }
     
     private func initiateViewModel() {
-        self.viewModel = GameDetailViewModel(game: self.game)
+        self.viewModel = GameDetailViewModel(game: self.game, withDelegate: self)
+    }
+    
+    private func videoWillLoad() {
+        HUD.show(HUDContentType.progress)
+    }
+    
+    private func videoDidLoad() {
+        HUD.hide()
+    }
+    
+    private func loadVideo() {
+        self.videoWillLoad()
+        self.viewModel.loadVideo(gameId: game.gameId)
+    }
+    
+    // MARK: Reachability methods
+    
+    private func registerReachability() {
+        self.reachability = Reachability.forInternetConnection()
+        self.reachability?.reachableBlock = { (reach: Reachability?) -> Void in
+            DispatchQueue.main.async {
+                self.connectionRestaured()
+            }
+        }
+        self.reachability?.unreachableBlock = { (reach: Reachability?) -> Void in
+            DispatchQueue.main.async {
+                self.connectionDown()
+            }
+        }
+        self.reachability?.startNotifier()
+    }
+    
+    private func connectionDown() {
+        self.watchVideoButton.isEnabled = false
+    }
+    
+    private func connectionRestaured() {
+        self.watchVideoButton.isEnabled = true
+    }
+    
+    @IBAction func initiateVideoModal(_ sender: Any) {
+        self.loadVideo()
+    }
+}
+
+extension GameDetailViewController: GameDetailViewModelDelegate {
+    func encodingDataReceivedError(_ error: Error?) {
+        self.videoDidLoad()
+        self.videoUrl = nil
+    }
+    
+    func invalidUrl() {
+        self.videoDidLoad()
+        self.videoUrl = nil
+    }
+    
+    func videoDidLoad(_ videoUrl: URL) {
+        self.videoDidLoad()
+        self.videoUrl = videoUrl
+        self.performSegue(withIdentifier: "goToVideo", sender: nil)
+    }
+    
+    func videosEmptyList() {
+        self.videoDidLoad()
+        self.videoUrl = nil
     }
 }

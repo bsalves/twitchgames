@@ -8,7 +8,16 @@
 
 import Foundation
 
+protocol GameDetailViewModelDelegate: class {
+    func encodingDataReceivedError(_ error: Error?)
+    func invalidUrl()
+    func videoDidLoad(_ videoUrl: URL)
+    func videosEmptyList()
+}
+
 class GameDetailViewModel {
+    
+    // MARK: Internal properties
     
     var gameName: String {
         return game.gameName
@@ -26,9 +35,47 @@ class GameDetailViewModel {
         return game.imageUrl
     }
     
-    private var game: GameModel
+    // MARK: Private properties
     
-    init(game: GameModel) {
+    private weak var delegate: GameDetailViewModelDelegate?
+    private var game: GameModel
+    private var videosRemoteData = VideosRemoteData()
+    
+    init(game: GameModel, withDelegate: GameDetailViewModelDelegate) {
         self.game = game
+        self.delegate = withDelegate
+        self.videosRemoteData.delegate = self
+    }
+    
+    // MARK: Internal methods
+    
+    func loadVideo(gameId: Int) {
+        videosRemoteData.fetchVideos(withGameId: gameId)
+    }
+}
+
+extension GameDetailViewModel: RemoteDataDelegate {
+    func dataDidLoaded(_ data: Data) {
+        do {
+            let videos = try JSONDecoder().decode(TWVideos.self, from: data)
+            
+            if videos.data.count > 0 {
+                let random = Int(arc4random_uniform(UInt32(videos.data.count)))
+                guard let videoUrl = URL(string: videos.data[random].embedURL) else {
+                    delegate?.invalidUrl()
+                    return
+                }
+                self.delegate?.videoDidLoad(videoUrl)
+            } else {
+                self.delegate?.videosEmptyList()
+            }
+            
+        } catch let error {
+            self.delegate?.encodingDataReceivedError(error)
+        }
+    }
+    
+    func requestDidReceivedError(_ error: Error) {
+        self.delegate?.encodingDataReceivedError(error)
     }
 }

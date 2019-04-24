@@ -55,7 +55,7 @@ extension GamesViewModel: RemoteDataDelegate {
             let games = try JSONDecoder().decode(TWGames.self, from: data)
             self.games = []
             games.top.forEach { [unowned self] (game) in
-                self.games.append(GameModel(gameName: game.game.name, imageUrl: game.game.box.large, channels: String(describing: game.viewers), viewers: String(describing: game.channels)))
+                self.games.append(GameModel(gameId: game.game.id, gameName: game.game.name, imageUrl: game.game.box.large, channels: String(describing: game.viewers), viewers: String(describing: game.channels)))
             }
             self.delegate?.gamesDidLoad(self.games)
         } catch let error {

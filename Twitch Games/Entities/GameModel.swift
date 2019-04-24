@@ -10,6 +10,7 @@ import Foundation
 
 struct GameModel {
     
+    var gameId: Int
     var gameName: String
     var imageUrl: String
     var channels: String

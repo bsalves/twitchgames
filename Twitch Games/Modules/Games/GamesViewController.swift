@@ -27,7 +27,7 @@ class GamesViewController: UIViewController {
     
     private var viewModel: GamesViewModel!
     private var reachability: Reachability?
-    private var refresher = UIRefreshControl()
+    private lazy var refresher = UIRefreshControl()
     
     // MARK: Lifecycle
     

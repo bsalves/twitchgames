@@ -183,7 +183,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                                 <state key="normal" title="Watch random videos"/>
                                                 <connections>
-                                                    <segue destination="yHZ-J5-BGl" kind="presentation" id="e7f-dL-Qtn"/>
+                                                    <action selector="initiateVideoModal:" destination="vMj-yJ-rxK" eventType="touchUpInside" id="l1B-Sa-RSI"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -225,6 +225,8 @@
                         <outlet property="channels" destination="ZSO-Va-SAk" id="I3s-SK-OuD"/>
                         <outlet property="cover" destination="cRQ-pr-YX5" id="58o-nG-3CJ"/>
                         <outlet property="viewers" destination="jWB-ch-Wea" id="aC1-f0-oiR"/>
+                        <outlet property="watchVideoButton" destination="RgR-SR-ffe" id="kIi-e0-JA9"/>
+                        <segue destination="yHZ-J5-BGl" kind="presentation" identifier="goToVideo" id="ovh-kR-h0l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Em-B4-Zgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
